@@ -274,7 +274,7 @@ function playing_changed()
 
 	  		-- % of the total time the song was playing
 	  		local ratio = time/total*100
-			vlc.msg.info(prefix ..  "skipped song at " .. ratio .. "%")
+			vlc.msg.info(prefix ..  "skipped song at " .. (math.floor(ratio * 100 + 0.5) / 100) .. "%")
 			
 			if ratio > 90 then
 				ratio = 90
