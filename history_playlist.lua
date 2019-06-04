@@ -252,11 +252,12 @@ function playing_changed()
 			vlc.msg.info(prefix ..  "skipped song at " .. (math.floor(time/total*10000 + 0.5) / 100) .. "%")
 			
 			store[path].skipcount = store[path].skipcount + 1
+		else
+			store[path].playcount =  store[path].playcount + 1
 	  	end
 	  	
 	  	-- save the song in the database with updated time
 		store[path].time = os.time()
-		store[path].playcount =  store[path].playcount + 1
 	  	save_data_file()
 	end
 end
